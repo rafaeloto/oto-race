@@ -1,65 +1,138 @@
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
+import { OpenF1API, type Pilot } from '@/lib/openf1';
 
-export default function Home() {
+export default async function Home() {
+  const pilots = await OpenF1API.getDrivers();
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <div className="min-h-screen bg-linear-to-br from-gray-900 via-gray-800 to-black text-white">
+      <div className="container mx-auto px-4 py-8 space-y-10">
+        {/* Header */}
+        <div className="text-center">
+          <div className="w-fit mx-auto flex items-start justify-center">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/images/logo.png"
+              alt="éfium-logo"
+              width={200}
+              height={100}
+              loading="eager"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <span className="text-white text-xl font-bold">®</span>
+          </div>
+
+          <p className="text-gray-400 italic text-lg">Vista a velocidade</p>
         </div>
-      </main>
+
+        {/* Instructions */}
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="bg-gray-800/30 backdrop-blur-lg rounded-xl p-8 border border-gray-700">
+            <h3 className="text-2xl font-bold mb-4">Como Funciona</h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+              <div>
+                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-2xl mb-3 mx-auto">
+                  1
+                </div>
+
+                <h4 className="text-lg font-semibold mb-2 text-center">Escanear QR Code</h4>
+
+                <p className="text-gray-400 text-center">
+                  Escaneie o código QR na sua camisa éfi.um® com o celular
+                </p>
+              </div>
+
+              <div>
+                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-2xl mb-3 mx-auto">
+                  2
+                </div>
+
+                <h4 className="text-lg font-semibold mb-2 text-center">Desbloquear</h4>
+
+                <p className="text-gray-400 text-center">
+                  Desbloqueie conteúdos personalizados, feitos especialmente para você
+                </p>
+              </div>
+
+              <div>
+                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-2xl mb-3 mx-auto">
+                  3
+                </div>
+
+                <h4 className="text-lg font-semibold mb-2 text-center">Desfrutar</h4>
+
+                <p className="text-gray-400 text-center">
+                  Veja dados em tempo real para os pilotos e seus carros na palma da sua mão
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Pilots Grid */}
+        <div className="max-w-full mx-auto">
+          <h3 className="text-3xl font-bold mb-6 text-center">Pilotos</h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            {pilots.map((pilot: Pilot) => (
+              <Link
+                key={pilot.id}
+                href={`/pilot/${pilot.id}`}
+                className={`flex flex-col justify-between backdrop-blur-lg rounded-xl p-4 border border-gray-700 hover:border-gray-600 transition-all duration-300 hover:transform hover:scale-105 min-w-[200px]`}
+                style={{ backgroundColor: pilot.teamColour ? `#${pilot.teamColour}80` : undefined }}
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  {pilot.headshotUrl && (
+                    <Image
+                      src={pilot.headshotUrl}
+                      alt={pilot.name}
+                      width={100}
+                      height={100}
+                      className="rounded-full"
+                      loading="eager"
+                    />
+                  )}
+
+                  <div className="flex-1">
+                    <div className='flex-1 flex items-center gap-2 justify-between'>
+                      <h3 className="text-lg font-bold">{pilot.name}</h3>
+
+                      <div className="w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold text-white"
+                        style={{ backgroundColor: pilot.teamColour ? `#${pilot.teamColour}` : '#dc2626' }}
+                      >
+                        {pilot.number}
+                      </div>
+                    </div>
+
+                    <p className="text-gray-300 text-md">{pilot.team}</p>
+                  </div>
+                </div>
+
+                <p className="text-gray-300 italic mb-4">
+                  &ldquo;{pilot.quote}&rdquo;
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="text-center mt-12 text-gray-500 text-sm">
+          <p className="mb-2">Escaneie os QR codes nas camisas éfi.um® para experimentar mais conteúdos como esse</p>
+          <p className="mb-2">© 2025 éfi.um® - Vista a Corrida</p>
+          <p className="mb-2">Vestuário Premium Inspirado na Fórmula 1</p>
+
+          <div className="border-t border-gray-600 pt-4 mt-4">
+            <h4 className="font-semibold mb-2">Créditos</h4>
+            <div className="space-y-1 text-xs">
+              <p><strong>Dados:</strong> <a href="https://openf1.org/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">OpenF1 API</a></p>
+              <p><strong>Sons:</strong></p>
+              <p className="ml-4">• &ldquo;live formula 1 racing 4&rdquo; por <a href="https://freesound.org/people/Geoff-Bremner-Audio/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Geoff-Bremner-Audio</a> - <a href="https://freesound.org/s/752118/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Licença: Creative Commons 0</a></p>
+              <p className="ml-4">• &ldquo;Sport News Music&rdquo; por <a href="https://freesound.org/people/humanoide9000/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">humanoide9000</a> - <a href="https://freesound.org/s/769113/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Licença: Attribution 4.0</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

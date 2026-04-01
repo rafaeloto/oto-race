@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# éfi.um - F1 Experience Platform
 
-## Getting Started
+A Next.js platform for éfi.um Formula 1 inspired apparel brand. Scan QR codes on shirts to unlock exclusive driver content with real-time F1 data, championship standings, and immersive audio experiences.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Dynamic Driver Pages**: Individual pages for each F1 driver with comprehensive race data
+- **Real-Time F1 Data**: Live driver information, race results, and championship standings via OpenF1 API
+- **Championship Tables**: Complete Teams and Drivers championship standings with position changes
+- **Audio Experience**: Immersive engine sounds that play when visiting driver pages
+- **Race Session Results**: Latest race performance data including position, laps, time, and gaps
+- **Circuit Information**: Detailed circuit data with images, locations, and country flags
+- **Driver Headshots**: Professional driver photos with team color integration
+- **QR Code Integration**: Direct links from shirt QR codes to driver experiences
+- **Responsive Design**: Mobile-first design optimized for QR code scanning
+- **Performance Optimized**: Next.js native caching for 5-minute data refresh
+
+## Tech Stack
+
+- **Next.js 14** with App Router
+- **TypeScript** for type safety
+- **Tailwind CSS** for styling
+- **OpenF1 API** for real-time Formula 1 data
+- **Next.js Image Optimization** for performance
+- **Vercel** for deployment
+
+## Data Sources
+
+- **OpenF1 API** (https://openf1.org/) - Real-time F1 driver, session, and championship data
+- **Driver Headshots** - Official F1 media assets
+- **Circuit Images** - Official F1 circuit photography
+
+## Audio Credits
+
+- "live formula 1 racing 4" by Geoff-Bremner-Audio - License: Creative Commons 0
+- "Sport News Music" by humanoide9000 - License: Attribution 4.0
+
+## API Endpoints Used
+
+- `/drivers` - Driver information and headshots
+- `/sessions` - Race session data
+- `/meetings` - Circuit and location information
+- `/session_result` - Race results and performance data
+- `/championship_teams` - Teams championship standings
+- `/championship_drivers` - Drivers championship standings
+
+## Key Features
+
+### Driver Pages
+
+- Personal driver information with headshots and team colors
+- Latest race session results with detailed performance metrics
+- Circuit information with images and location data
+- Championship standings for both teams and drivers
+- Position changes and points gained indicators
+
+### Championship Tables
+
+- Real-time teams championship standings
+- Drivers championship standings with headshots
+- Position change indicators (↑ for gains, ↓ for losses)
+- Points gained visualization
+- Current driver highlighting with team colors
+
+### Data Handling
+
+- 5-minute cache for optimal performance
+- Graceful fallback to mock data if API fails
+- Duplicate driver filtering and data validation
+- Error handling and logging
+
+## Performance
+
+- **Static Generation**: Fast loading with Next.js SSG
+- **Image Optimization**: Next.js Image component with lazy loading
+- **API Caching**: Native Next.js fetch cache with 5-minute revalidation
+- **Responsive Design**: Mobile-optimized for QR code scanning
+
+## Deployment
+
+The application is optimized for Vercel deployment with automatic static generation and API route handling.
+
+## QR Code URLs
+
+Generate QR codes pointing to:
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+https://your-domain.vercel.app/pilot/{driver-id}
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Examples:
 
-## Learn More
+- Lewis Hamilton: `/pilot/lewis-hamilton`
+- Max Verstappen: `/pilot/max-verstappen`
+- Charles Leclerc: `/pilot/charles-leclerc`
 
-To learn more about Next.js, take a look at the following resources:
+The app is optimized for Vercel's Edge Network with static generation.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
