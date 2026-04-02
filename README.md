@@ -1,11 +1,11 @@
-# éfi.um - F1 Experience Platform
+# Oto Race - Race Experience Platform
 
-A Next.js platform for éfi.um Formula 1 inspired apparel brand. Scan QR codes on shirts to unlock exclusive driver content with real-time F1 data, championship standings, and immersive audio experiences.
+A Next.js platform for Oto Race. Provides driver content with real-time racing data and championship standings.
 
 ## Features
 
-- **Dynamic Driver Pages**: Individual pages for each F1 driver with comprehensive race data
-- **Real-Time F1 Data**: Live driver information, race results, and championship standings via OpenF1 API
+- **Dynamic Driver Pages**: Individual pages for each driver with comprehensive race data
+- **Real-Time F1 Data**: Live driver information, race results, and championship standings via 'OpenF1 API'
 - **Championship Tables**: Complete Teams and Drivers championship standings with position changes
 - **Audio Experience**: Immersive engine sounds that play when visiting driver pages
 - **Race Session Results**: Latest race performance data including position, laps, time, and gaps
@@ -20,15 +20,15 @@ A Next.js platform for éfi.um Formula 1 inspired apparel brand. Scan QR codes o
 - **Next.js 14** with App Router
 - **TypeScript** for type safety
 - **Tailwind CSS** for styling
-- **OpenF1 API** for real-time Formula 1 data
+- **OpenF1 API** for real-time race data
 - **Next.js Image Optimization** for performance
 - **Vercel** for deployment
 
 ## Data Sources
 
-- **OpenF1 API** (https://openf1.org/) - Real-time F1 driver, session, and championship data
-- **Driver Headshots** - Official F1 media assets
-- **Circuit Images** - Official F1 circuit photography
+- **OpenF1 API** (https://openf1.org/) - Real-time race driver, session, and championship data
+- **Driver Headshots** - Official race media assets
+- **Circuit Images** - Official race circuit photography
 
 ## Audio Credits
 
@@ -80,13 +80,11 @@ A Next.js platform for éfi.um Formula 1 inspired apparel brand. Scan QR codes o
 
 The application is optimized for Vercel deployment with automatic static generation and API route handling.
 
-## QR Code URLs
-
-Generate QR codes pointing to:
+## URLs
 
 ```
 
-https://your-domain.vercel.app/pilot/{driver-id}
+https://oto-race.vercel.app/pilot/{driver-id}
 
 ```
 

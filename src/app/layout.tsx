@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "efi.um",
-  description: "Efi um - Fórmula 1",
+  title: "Oto Race",
+  description: "Oto Race - Sistema de corrida",
 };
 
 export default function RootLayout({

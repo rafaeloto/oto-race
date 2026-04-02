@@ -1,4 +1,4 @@
-// OpenF1 API integration for éfi.um
+// OpenF1 API integration for oto-race
 
 interface OpenF1Driver {
   broadcast_name: string;
@@ -106,7 +106,7 @@ export class OpenF1API {
       const response = await fetch(`${API_BASE_URL}/drivers?session_key=latest`, {
         next: { revalidate: 300 }, // Cache por 5 minutos
         headers: {
-          'User-Agent': 'efium-f1-app/1.0'
+          'User-Agent': 'oto-race-app/1.0'
         }
       });
 
@@ -154,7 +154,7 @@ export class OpenF1API {
       const response = await fetch(`${API_BASE_URL}/sessions?session_name=Race&meeting_key=latest`, {
         next: { revalidate: 300 },
         headers: {
-          'User-Agent': 'efium-f1-app/1.0'
+          'User-Agent': 'oto-race-app/1.0'
         }
       });
 
@@ -183,7 +183,7 @@ export class OpenF1API {
       const response = await fetch(`${API_BASE_URL}/meetings?meeting_key=${meetingKey}`, {
         next: { revalidate: 300 },
         headers: {
-          'User-Agent': 'efium-f1-app/1.0'
+          'User-Agent': 'oto-race-app/1.0'
         }
       });
 
@@ -212,7 +212,7 @@ export class OpenF1API {
       const response = await fetch(`${API_BASE_URL}/session_result?session_key=${sessionKey}`, {
         next: { revalidate: 300 },
         headers: {
-          'User-Agent': 'efium-f1-app/1.0'
+          'User-Agent': 'oto-race-app/1.0'
         }
       });
 
@@ -248,7 +248,7 @@ export class OpenF1API {
       const response = await fetch(`${API_BASE_URL}/championship_teams?session_key=${sessionKey}`, {
         next: { revalidate: 300 },
         headers: {
-          'User-Agent': 'efium-f1-app/1.0'
+          'User-Agent': 'oto-race-app/1.0'
         }
       });
 
@@ -277,7 +277,7 @@ export class OpenF1API {
       const response = await fetch(`${API_BASE_URL}/championship_drivers?session_key=${sessionKey}`, {
         next: { revalidate: 300 },
         headers: {
-          'User-Agent': 'efium-f1-app/1.0'
+          'User-Agent': 'oto-race-app/1.0'
         }
       });
 

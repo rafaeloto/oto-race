@@ -104,24 +104,19 @@ export default function PilotPage({
 
   return (
     <div className="min-h-screen bg-linear-to-br from-gray-900 via-gray-800 to-black text-white flex flex-col">
-      <audio ref={audioRef} src='/audio/efium-theme.mp3' loop muted />
+      <audio ref={audioRef} src='/audio/oto-race-theme.mp3' loop muted />
 
       <div className="flex flex-col flex-1 mx-auto px-4 py-8 relative">
         {/* Header */}
-        <div className="text-center mb-6">
-          <div className="w-fit mx-auto flex items-start justify-center">
-            <Image
-              src="/images/logo.png"
-              alt="éfium-logo"
-              width={200}
-              height={100}
-              loading="eager"
-              className="mx-auto"
-            />
-            <span className="text-white text-xl font-bold">®</span>
-          </div>
-
-          <p className="text-gray-400 text-lg">Vista a velocidade</p>
+        <div className="w-fit mx-auto flex items-start justify-center mb-6">
+          <Image
+            src="/images/logo.png"
+            alt="oto-race-logo"
+            width={200}
+            height={100}
+            loading="eager"
+            className="mx-auto"
+          />
         </div>
 
         {/* Discover Screen */}
@@ -311,7 +306,7 @@ export default function PilotPage({
                     {/* Teams Championship Table */}
                     {championshipTeams && championshipTeams.length > 0 && (
                       <div className="mt-6 p-4">
-                        <h3 className="text-2xl font-bold mb-6 text-center">Campeonato de Equipes</h3>
+                        <h3 className="text-2xl font-bold mb-6 text-center">Campeonato de Construtores</h3>
                         <div className="overflow-x-auto">
                           <table className="w-full text-sm">
                             <thead>
@@ -416,19 +411,19 @@ export default function PilotPage({
         )}
 
         {/* Footer */}
-        <div className="text-center mt-12 text-gray-500 text-sm">
-          <p className="mb-2">Escaneie os QR codes nas camisas éfi.um® para experimentar mais conteúdos como esse</p>
-          <p className="mb-2">© 2025 éfi.um® - Vista a Corrida</p>
-          <p className="mb-2">Vestuário Premium Inspirado na Fórmula 1</p>
-
-          <div className="border-t border-gray-600 pt-4 mt-4">
-            <h4 className="font-semibold mb-2">Créditos</h4>
-            <div className="space-y-1 text-xs">
-              <p><strong>Dados:</strong> <a href="https://openf1.org/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">OpenF1 API</a></p>
-              <p><strong>Sons:</strong></p>
-              <p className="ml-4">• &ldquo;live formula 1 racing 4&rdquo; por <a href="https://freesound.org/people/Geoff-Bremner-Audio/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Geoff-Bremner-Audio</a> - <a href="https://freesound.org/s/752118/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Licença: Creative Commons 0</a></p>
-              <p className="ml-4">• &ldquo;Sport News Music&rdquo; por <a href="https://freesound.org/people/humanoide9000/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">humanoide9000</a> - <a href="https://freesound.org/s/769113/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Licença: Attribution 4.0</a></p>
-            </div>
+        <div className="flex items-center justify-between gap-4 text-xs text-center mt-12 text-gray-500 border-t border-gray-600 pt-4">
+          <div>
+            <p className='mt-2'><strong>Dados:</strong></p>
+            <p><a href="https://openf1.org/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">OpenF1 API</a></p>
+          </div>
+          <div>
+            <p className='mt-2'><strong>Sons:</strong></p>
+            <p><a href="https://freesound.org/people/Geoff-Bremner-Audio/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Geoff-Bremner-Audio</a> - <a href="https://freesound.org/s/752118/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Licença: Creative Commons 0</a></p>
+            <p><a href="https://freesound.org/people/humanoide9000/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">humanoide9000</a> - <a href="https://freesound.org/s/769113/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Licença: Attribution 4.0</a></p>
+          </div>
+          <div>
+            <p className='mt-2'><strong>ícone:</strong></p>
+            <p><a href="https://www.flaticon.com/free-icons/sports-and-competition" title="sports and competition icons" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Sports and competition icons created by IYIKON - Flaticon</a></p>
           </div>
         </div>
       </div>
